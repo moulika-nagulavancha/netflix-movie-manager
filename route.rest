@@ -1,0 +1,28 @@
+GET http://localhost:3000/netflix
+
+###
+GET http://localhost:3000/netflix/FTA
+
+###
+POST http://localhost:3000/netflix/
+Content-Type: application/json
+
+{
+  "age_certification": "TV-15",
+  "description": "A British sketch comedy series with the shows being composed of surreality, risqué or innuendo-laden humour, sight gags and observational sketches without punchlines.",
+  "genres": [
+    "comedy",
+    "european"
+  ],
+  "imdb_score": 8.8,
+  "production_countries": [
+    "GB"
+  ],
+  "release_year": 1969,
+  "runtime": 30,
+  "title": "Moulika Record Test 4",
+  "type": "SHOW"
+}
+
+###
+DELETE http://localhost:3000/netflix/Taxi Driver

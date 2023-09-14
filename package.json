@@ -1,0 +1,43 @@
+{
+  "name": "netflix-movie-manager",
+  "version": "1.0.0",
+  "description": "A Web Framework to perform basic CRUD operations on Netflix data in MongoDB using Node JS and Express.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moulika-nagulavancha/netflix-movie-manager.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "MongoDB",
+    "Express",
+    "JS",
+    "NodeJS",
+    "Postman",
+    "REST",
+    "API",
+    "CRUD",
+    "operations"
+  ],
+  "author": "Moulika Nagulavancha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moulika-nagulavancha/netflix-movie-manager/issues"
+  },
+  "homepage": "https://github.com/moulika-nagulavancha/netflix-movie-manager#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "heroku": "^8.4.2",
+    "mongoose": "^7.5.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
