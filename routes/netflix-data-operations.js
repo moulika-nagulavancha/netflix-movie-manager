@@ -4,7 +4,6 @@ const router = express.Router();
 
 // Configure the Model Schema
 const NetflixSchema = require('../models/netflix');
-const ObjectId = require('mongoose').ObjectId;
 
 // Inserting new movie and show
 router.post('/', async (request, response) => {
@@ -18,21 +17,32 @@ router.post('/', async (request, response) => {
 });
 
 // Update movie and show using title
-router.patch('/:title', (request, response) => {
-    let title = request.params.title;
+router.patch('/:title', async (request, response) => {
+    try {
+        const title = request.params.title;
+        const updatedNetflixRecord = request.body;
+
+        const netflixRecord = await NetflixSchema.findOneAndUpdate(
+            {title: title}, 
+            updatedNetflixRecord, 
+            {new: true, upsert: true});
+
+        response.status(200).send(netflixRecord);
+    } catch (error) {
+        response.status(400).json({message: error.message});
+    }
 });
 
 // Delete movie and show using title
-router.delete('/:title', (request, response) => {
+router.delete('/:title', async (request, response) => {
     let title = request.params.title;
     try {
-        NetflixSchema.findOneAndRemove({title: title}).then((record, error) => {
-            if (record != null) {
-                response.status(200).send(record);
-            } else {
-                response.status(404).json({message: 'Record not found to delete!'});
-            }
-        });
+        let removedNetflixRecord = await NetflixSchema.findOneAndRemove({title: title});
+        if (removedNetflixRecord == null) {
+            response.status(200).send({message: 'No record present to delete'});
+        } else {
+            response.status(200).send(removedNetflixRecord);
+        }
     } catch (error) {
         response.status(500).json({message: error.message});
     }
