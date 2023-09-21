@@ -1,7 +1,7 @@
 GET http://localhost:3000/netflix
 
 ###
-GET http://localhost:3000/netflix/FTA
+GET http://localhost:3000/netflix/Moulika Record Test 5
 
 ###
 POST http://localhost:3000/netflix/
@@ -26,3 +26,12 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/netflix/Taxi Driver
+
+###
+PATCH http://localhost:3000/netflix/Moulika Record Test 5
+Content-Type: application/json
+
+{
+  "description": "Patch Description 2",
+  "release_year": 2020
+}
